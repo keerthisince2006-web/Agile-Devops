@@ -1,0 +1,150 @@
+Ex:6 - INSTALL AND CONFIGURE JENKINS FOR CONTINUOUS INTEGRATION AND 
+DELIVERY
+ type "C:\ProgramData\Jenkins\.jenkins\secrets\initialAdminPassword"
+: winget install EclipseAdoptium.Temu
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Checkout') {
+            steps {
+                git(
+                    credentialsId: 'azure-devops-pat',
+                    url: 'PASTE_YOUR_AZURE_DEVOPS_REPOSITORY_URL_HERE',
+                    branch: 'main'
+                )
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo 'Build started'
+                echo 'Build completed successfully'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Testing application...'
+                echo 'All tests passed'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deployment completed successfully'
+            }
+        }
+    }
+}: # Jenkins CI CD
+This repository is created for Jenkins Continuous Integration and Delivery.
+: Ex:7-SET UP AND CONFIGURE A CONTINUOUS INTEGRAT pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello from Jenkins CI Pipeline!'
+            }
+        }
+    }
+}
+[9/22, 9:42 PM] +91 95855 45085: Exp no:9-IMPLEMENT CONTINUOUS 
+def test_add():
+    assert add(10, 5) == 15
+
+def test_subtract():
+    assert subtract(10, 5) == 5
+
+def test_multiply():
+    assert multiply(10, 5) == 50
+
+def test_divide():
+    assert divide(10, 5) == 2
+[9/22, 9:43 PM] +91 95855 45085: def add(a, b):
+    return a + b
+
+def subtract(a, b):
+    return a - b
+
+def multiply(a, b):
+    return a * b
+
+def divide(a, b):
+    if b == 0:
+        raise ValueError("Cannot divide by zero")
+    return a / b
+[9/22, 9:43 PM] +91 95855 45085: trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.x'
+  displayName: 'Set up Python'
+
+- script: |
+    python -m pip install --upgrade pip
+    pip install -r requirements.txt
+  displayName: 'Install dependencies'
+
+- script: |
+    pytest --junitxml=test-results.xml --cov=. --cov-report=xml
+  displayName: 'Run automated tests'
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/test-results.xml'
+    failTaskOnFailedTests: true
+    testRunTitle: 'Python Automated Tests'
+  condition: succeededOrFailed()
+  displayName: 'Publish test results'
+
+- task: PublishCodeCoverageResults@2
+  inputs:
+    summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/coverage.xml'
+  condition: succeededOrFailed()
+  displayName: 'Publish code coverage'
+[9/27, 6:11 PM] +91 96261 76611: <!DOCTYPE html>
+<html>
+<head>
+    <title>BMI Calculator</title>
+</head>
+<body>
+
+    <h1>BMI Calculator</h1>
+
+    <label>Weight (kg):</label>
+    <input type="number" id="weight">
+
+    <br><br>
+
+    <label>Height (m):</label>
+    <input type="number" id="height">
+
+    <br><br>
+
+    <button onclick="calculateBMI()">Calculate BMI</button>
+
+    <h2 id="result"></h2>
+
+    <script>
+        function calculateBMI() {
+            let weight = document.getElementById("weight").value;
+            let height = document.getElementById("height").value;
+
+            let bmi = weight / (height * height);
+
+            document.getElementById("result").innerHTML =
+                "BMI = " + bmi.toFixed(2);
+        }
+    </script>
+
+</body>
+</html>
